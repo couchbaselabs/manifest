@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="membase"
+           fetch="git://github.com/membase/"
+           review="review.membase.org" />
+
+  <remote  name="membase-private"
+           fetch="git@github.com:membase/"
+           review="review.membase.org" />
+
+  <remote  name="erlang" fetch="git://github.com/erlang/" />
+
+  <default revision="master" remote="membase" />
+
+  <project path="tlm" name="tlm">
+    <copyfile src="Makefile" dest="Makefile" />
+  </project>
+
+  <project path="ns_server" name="ns_server" />
+  <project path="ep-engine" name="ep-engine" />
+  <project path="bucket_engine" name="bucket_engine" />
+  <project path="memcached" name="memcached"
+           revision="engine" />
+  <project path="libconflate" name="libconflate" />
+  <project path="libvbucket" name="libvbucket" />
+  <project path="membase-cli" name="membase-cli" />
+  <project path="memcachetest" name="memcachetest" />
+  <project path="moxi" name="moxi" />
+  <project path="vbucketmigrator" name="vbucketmigrator" />
+
+
+  <!-- For CouchDB -->
+
+  <project path="couchdb/build-tools" name="build-couchdb">
+      <copyfile src="Rakefile" dest="couchdb/Rakefile" />
+  </project>
+  <project path="couchdb/dependencies/couchdb" name="couchdb"
+           remote="membase-private" />
+
+
+  <project name="icu4c" path="couchdb/dependencies/icu4c-4_4"
+           revision="2ef73b7482a4a297e1e6a464f114dd65b0ee9610"/>
+  <project name="otp" path="couchdb/dependencies/otp" remote="erlang"
+           revision="99e34bba1a60b262e24496cc9288b549360c6377"/>
+  <project name="spidermonkey" path="couchdb/dependencies/js_src"
+           revision="a821f8a4287dcb36b8029c83fc47fa6f65035d60"/>
+
+</manifest>
